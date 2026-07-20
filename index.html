@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#0c120e" />
+    <meta name="description" content="NearPost — goalkeeper positioning trainer. Place the keeper, get graded, see why." />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icon.svg" />
+    <title>NearPost</title>
+    <script type="module" crossorigin src="/nearpost/assets/index-CARi4Mpw.js"></script>
+    <link rel="stylesheet" crossorigin href="/nearpost/assets/index-COY4_Y9f.css">
+  </head>
+  <body>
+    <div id="app">
+      <header class="appbar">
+        <span class="wordmark">NEAR<i>POST</i></span>
+        <select id="scenario-select" aria-label="Scenario"></select>
+        <button id="settings-btn" class="iconbtn" aria-label="Keeper profile settings">⚙</button>
+      </header>
+      <main class="stage">
+        <canvas id="pitch"></canvas>
+        <div id="scenario-blurb" class="blurb"></div>
+      </main>
+      <section class="panel">
+        <div class="evalrow">
+          <span class="evallabel">EVAL</span>
+          <div class="evaltrack"><div id="eval-fill" class="evalfill"></div></div>
+          <span id="eval-num" class="evalnum">–</span>
+        </div>
+        <div id="result-row" class="resultrow">
+          <span id="grade-chip" class="gradechip hidden"></span>
+        </div>
+        <ul id="why-list" class="why"></ul>
+        <div class="btnrow">
+          <button id="toggle-heatmap" class="btn toggle">Heatmap</button>
+          <button id="toggle-cone" class="btn toggle">Cone</button>
+          <button id="check-btn" class="btn primary">Check</button>
+          <button id="next-btn" class="btn">Next</button>
+        </div>
+      </section>
+      <dialog id="settings-dialog">
+        <form method="dialog" id="settings-form">
+          <h2>Keeper profile</h2>
+          <p class="hint">The engine grades against geometry <em>for your body</em> — a taller keeper's best position is genuinely different.</p>
+          <div class="presetrow">
+            <button type="button" data-preset="default" class="btn">Default</button>
+            <button type="button" data-preset="elite" class="btn">Elite</button>
+            <button type="button" data-preset="youth" class="btn">Youth U12</button>
+          </div>
+          <label>Height (m)<input id="p-height" type="number" step="0.01" min="1.2" max="2.2" /></label>
+          <label>Reaction time (s)<input id="p-reaction" type="number" step="0.01" min="0.15" max="0.5" /></label>
+          <label>Dive reach (m)<input id="p-dive" type="number" step="0.1" min="1.5" max="4" /></label>
+          <label>Aerial reach (m)<input id="p-aerial" type="number" step="0.05" min="2" max="3.6" /></label>
+          <label>Sprint speed (m/s)<input id="p-vmax" type="number" step="0.1" min="4" max="10" /></label>
+          <div class="dialogbtns">
+            <button value="cancel" class="btn">Cancel</button>
+            <button value="save" id="settings-save" class="btn primary">Save</button>
+          </div>
+        </form>
+      </dialog>
+    </div>
+  </body>
+</html>
